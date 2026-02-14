@@ -1,0 +1,185 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('help');
+const sorted = articles.sort((a, b) => a.data.order - b.data.order);
+
+const categories = [
+  { name: 'Getting Started', icon: '&#9889;', desc: 'New to CapFlow? Start here.' },
+  { name: 'Setup & Configuration', icon: '&#9881;', desc: 'Resources, services, scheduling, and capacity.' },
+  { name: 'Daily Operations', icon: '&#9745;', desc: 'Calendar, bookings, check-in, and events.' },
+  { name: 'Insights', icon: '&#9888;', desc: 'Analytics, customer management, and members.' },
+  { name: 'Reference', icon: '&#128218;', desc: 'FAQ and troubleshooting.' },
+];
+---
+
+<Base title="Help Center — CapFlow" description="Guides and documentation for the CapFlow Booking App. Learn how to set up and manage your capacity-based booking system.">
+
+  <section class="help-hero">
+    <div class="container">
+      <h1 class="animate-fade-up">Help Center</h1>
+      <p class="animate-fade-up delay-1">Everything you need to set up and run your booking system.</p>
+    </div>
+  </section>
+
+  <section class="help-content">
+    <div class="container">
+      {categories.map((cat, i) => {
+        const catArticles = sorted.filter(a => a.data.category === cat.name);
+        if (catArticles.length === 0) return null;
+        return (
+          <div class={`help-category animate-fade-up delay-${i + 1}`}>
+            <div class="help-category__header">
+              <h2>{cat.name}</h2>
+              <p>{cat.desc}</p>
+            </div>
+            <div class="help-category__articles">
+              {catArticles.map(article => (
+                <a href={`/help/${article.id}`} class="help-article-card">
+                  <div class="help-article-card__content">
+                    <h3>{article.data.title}</h3>
+                    <p>{article.data.description}</p>
+                  </div>
+                  <svg class="help-article-card__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="help-cta">
+    <div class="container">
+      <div class="help-cta__inner">
+        <h2>Can't find what you need?</h2>
+        <p>Reach out to us and we'll help you get sorted.</p>
+        <a href="mailto:hello@tinyagency.io" class="btn btn--primary">Contact support</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .help-hero {
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+
+  .help-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+    margin-bottom: 12px;
+  }
+
+  .help-hero p {
+    font-size: 18px;
+    color: var(--muted);
+  }
+
+  .help-content {
+    padding: 0 0 64px;
+  }
+
+  .help-category {
+    margin-bottom: 48px;
+  }
+
+  .help-category__header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .help-category__header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
+  .help-category__header p {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .help-category__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .help-article-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .help-article-card:hover {
+    background: var(--surface);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .help-article-card__content h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .help-article-card__content p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .help-article-card__arrow {
+    flex-shrink: 0;
+    color: var(--border);
+    transition: all 0.2s ease;
+  }
+
+  .help-article-card:hover .help-article-card__arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  .help-cta {
+    padding: 0 0 40px;
+  }
+
+  .help-cta__inner {
+    text-align: center;
+    padding: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .help-cta__inner h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .help-cta__inner p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .help-hero {
+      padding: 48px 0 32px;
+    }
+    .help-cta__inner {
+      padding: 32px 24px;
+    }
+  }
+</style>

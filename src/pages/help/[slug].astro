@@ -1,0 +1,155 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('help');
+  return articles.map(article => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const allArticles = await getCollection('help');
+const sorted = allArticles.sort((a, b) => a.data.order - b.data.order);
+const currentIndex = sorted.findIndex(a => a.id === article.id);
+const prev = currentIndex > 0 ? sorted[currentIndex - 1] : null;
+const next = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
+---
+
+<Base title={`${article.data.title} — CapFlow Help`} description={article.data.description}>
+
+  <article class="article-page">
+    <div class="container--narrow">
+
+      <div class="article-breadcrumb animate-fade-up">
+        <a href="/help">Help Center</a>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <span>{article.data.category}</span>
+      </div>
+
+      <header class="article-header animate-fade-up delay-1">
+        <h1>{article.data.title}</h1>
+        <p class="article-description">{article.data.description}</p>
+      </header>
+
+      <div class="prose animate-fade-up delay-2">
+        <Content />
+      </div>
+
+      <nav class="article-nav">
+        {prev && (
+          <a href={`/help/${prev.id}`} class="article-nav__link article-nav__link--prev">
+            <span class="article-nav__label">Previous</span>
+            <span class="article-nav__title">{prev.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a href={`/help/${next.id}`} class="article-nav__link article-nav__link--next">
+            <span class="article-nav__label">Next</span>
+            <span class="article-nav__title">{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+
+    </div>
+  </article>
+
+</Base>
+
+<style>
+  .article-page {
+    padding: 40px 0 64px;
+  }
+
+  .article-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .article-breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .article-breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .article-header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-header h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 12px;
+  }
+
+  .article-description {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .article-nav {
+    display: flex;
+    gap: 16px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-nav__link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .article-nav__link:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .article-nav__link--next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .article-nav__label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .article-nav__title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  @media (max-width: 600px) {
+    .article-nav {
+      flex-direction: column;
+    }
+    .article-nav__link--next {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Privacy Policy — CapFlow" description="Privacy policy for the CapFlow Booking App">
+
+  <article class="legal-page">
+    <div class="container--narrow">
+      <header class="legal-header animate-fade-up">
+        <h1>Privacy Policy</h1>
+        <p class="legal-updated">Last updated: January 2026</p>
+      </header>
+
+      <div class="prose animate-fade-up delay-1">
+        <p>
+          CapFlow Booking App ("we", "our", or "the App") is a booking and reservation
+          management system that integrates with Shopify stores. This privacy policy
+          explains how we collect, use, and protect information when you use our App.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>When integrated with a Shopify store, the App accesses and stores:</p>
+        <ul>
+          <li><strong>Customer information</strong>: Name and email address associated with bookings</li>
+          <li><strong>Booking data</strong>: Reservation dates, times, party size, and service selections</li>
+          <li><strong>Order information</strong>: Order ID, payment status, and line items from Shopify</li>
+          <li><strong>Product data</strong>: Product and variant information used for booking services</li>
+        </ul>
+
+        <h2>How We Use Information</h2>
+        <p>We use the collected information to:</p>
+        <ul>
+          <li>Manage reservations and track capacity availability</li>
+          <li>Process bookings and connect them to Shopify orders</li>
+          <li>Enable merchants to view and manage customer bookings</li>
+          <li>Facilitate check-in and attendance tracking</li>
+          <li>Generate booking reports and analytics for merchants</li>
+        </ul>
+
+        <h2>Data Storage and Security</h2>
+        <p>
+          All data is stored on secure servers hosted by Fly.io in the European Union.
+          We implement industry-standard security measures including encrypted connections
+          (HTTPS), secure database access, and regular security updates.
+        </p>
+
+        <h2>Data Sharing</h2>
+        <p>
+          We do not sell, rent, or share customer data with third parties. Data is only
+          accessible to the merchant who operates the Shopify store where the App is installed.
+        </p>
+
+        <h2>Data Retention</h2>
+        <p>
+          Booking and customer data is retained for as long as the App remains installed
+          on the merchant's store, plus a reasonable period for business records (typically
+          2 years). When the App is uninstalled, associated data is deleted within 30 days.
+        </p>
+
+        <h2>GDPR Compliance</h2>
+        <p>
+          As data is stored in the EU and we process data for EU-based merchants,
+          we comply with the General Data Protection Regulation (GDPR). Merchants
+          act as data controllers for their customer data, while we act as a
+          data processor.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          If you are a customer who has made a booking through a store using this App,
+          you may request access to, correction of, or deletion of your personal data by
+          contacting the merchant directly. The merchant can fulfill these requests through
+          the App's admin interface.
+        </p>
+
+        <h2>Changes to This Policy</h2>
+        <p>
+          We may update this privacy policy from time to time. We will notify merchants
+          of significant changes through the App or via email.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For questions about this privacy policy or data practices, please contact us
+          at <a href="mailto:hello@tinyagency.io">hello@tinyagency.io</a>.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</Base>
+
+<style>
+  .legal-page {
+    padding: 40px 0 64px;
+  }
+
+  .legal-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .legal-header h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 8px;
+  }
+
+  .legal-updated {
+    font-size: 14px;
+    color: var(--muted);
+  }
+</style>

@@ -1,0 +1,764 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="CapFlow — Capacity-Based Booking for Shopify">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container hero__inner">
+      <div class="hero__badge animate-fade-up">For Shopify stores</div>
+      <h1 class="hero__title animate-fade-up delay-1">
+        Booking that understands<br/>
+        <em>capacity</em>
+      </h1>
+      <p class="hero__subtitle animate-fade-up delay-2">
+        The reservation system built for activity venues. Define your resources,
+        set capacity limits, and let customers book directly from your Shopify storefront.
+      </p>
+      <div class="hero__actions animate-fade-up delay-3">
+        <a href="https://apps.shopify.com" class="btn btn--accent" target="_blank" rel="noopener">
+          Install free on Shopify
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/help/getting-started" class="btn btn--secondary">Read the docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Strip -->
+  <section class="proof">
+    <div class="container">
+      <div class="proof__inner animate-fade-up delay-4">
+        <div class="proof__item">
+          <strong>Capacity-first</strong>
+          <span>No overbooking, ever</span>
+        </div>
+        <div class="proof__divider"></div>
+        <div class="proof__item">
+          <strong>Shopify native</strong>
+          <span>Cart, checkout, payments</span>
+        </div>
+        <div class="proof__divider"></div>
+        <div class="proof__item">
+          <strong>Member-ready</strong>
+          <span>Passes, clips, priority pools</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <h2>Everything you need to<br/>manage bookings</h2>
+        <p>From scheduling to check-in, CapFlow handles the full lifecycle of capacity-based reservations.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card animate-fade-up delay-1">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Schedules & Scheduling</h3>
+          <p>Define weekly schedule rules and let CapFlow auto-generate all your timeslots. Change a rule, and hundreds of slots update instantly.</p>
+        </div>
+
+        <div class="feature-card animate-fade-up delay-2">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Capacity Pools</h3>
+          <p>Split capacity between members and public. Unused member slots auto-release to public customers as the session approaches.</p>
+        </div>
+
+        <div class="feature-card animate-fade-up delay-3">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Real-Time Holds</h3>
+          <p>10-minute atomic holds prevent double-booking while customers complete checkout. Capacity is locked, then confirmed or released.</p>
+        </div>
+
+        <div class="feature-card animate-fade-up delay-4">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <h3>Shopify Checkout</h3>
+          <p>Bookings go straight into the Shopify cart with the right product variants. Customers pay through your existing checkout.</p>
+        </div>
+
+        <div class="feature-card animate-fade-up delay-5">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3>Check-in System</h3>
+          <p>QR code scanning, today's arrivals dashboard, and no-show tracking. Fast check-in for staff at the front desk.</p>
+        </div>
+
+        <div class="feature-card animate-fade-up delay-6">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>Analytics</h3>
+          <p>Occupancy rates, check-in tracking, member vs. public splits, peak hours, and CSV exports. Know your venue inside out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <h2>Up and running in four steps</h2>
+        <p>Most venues are taking bookings within an hour of installing.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step animate-fade-up delay-1">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <h3>Define resources</h3>
+            <p>Create the physical things customers book — studios, courts, walls, lanes. Each gets its own capacity.</p>
+          </div>
+        </div>
+        <div class="step animate-fade-up delay-2">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <h3>Set your schedule</h3>
+            <p>Create a Schedule with weekly rules. CapFlow generates all the timeslots automatically.</p>
+          </div>
+        </div>
+        <div class="step animate-fade-up delay-3">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <h3>Link Shopify products</h3>
+            <p>Connect services to your Shopify products with per-person duration pricing.</p>
+          </div>
+        </div>
+        <div class="step animate-fade-up delay-4">
+          <div class="step__number">4</div>
+          <div class="step__content">
+            <h3>Add the widget</h3>
+            <p>Drop the booking widget onto your product page. Customers book and pay through Shopify checkout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Built For -->
+  <section class="built-for" id="built-for">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <h2>Built for venues where<br/>capacity matters</h2>
+      </div>
+
+      <div class="venues-grid animate-fade-up delay-2">
+        <div class="venue-tag">Fitness studios</div>
+        <div class="venue-tag">Climbing gyms</div>
+        <div class="venue-tag">Tennis & padel courts</div>
+        <div class="venue-tag">Surf schools</div>
+        <div class="venue-tag">Adventure centres</div>
+        <div class="venue-tag">Trampoline parks</div>
+        <div class="venue-tag">Escape rooms</div>
+        <div class="venue-tag">Water sports</div>
+        <div class="venue-tag">Play centres</div>
+        <div class="venue-tag">Bouldering gyms</div>
+        <div class="venue-tag">Experience venues</div>
+        <div class="venue-tag">Squash courts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section class="membership">
+    <div class="container">
+      <div class="membership__inner animate-fade-up">
+        <div class="membership__text">
+          <h2>Memberships, built in</h2>
+          <p>
+            Annual passes, monthly passes, and clip cards — all detected automatically through Shopify customer tags.
+            Members get priority booking from reserved capacity pools, and unused slots release to the public when the session approaches.
+          </p>
+          <div class="membership__features">
+            <div class="membership__feature">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C9512A" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#C9512A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Annual & monthly passes</span>
+            </div>
+            <div class="membership__feature">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C9512A" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#C9512A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Clip card credits</span>
+            </div>
+            <div class="membership__feature">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C9512A" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#C9512A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Priority capacity pools</span>
+            </div>
+            <div class="membership__feature">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C9512A" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#C9512A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Auto-release unused slots</span>
+            </div>
+          </div>
+        </div>
+        <div class="membership__visual">
+          <div class="pool-viz">
+            <div class="pool-viz__header">Timeslot: 14:00 — Main Wall</div>
+            <div class="pool-viz__bar">
+              <div class="pool-viz__segment pool-viz__segment--member" style="width: 33%">
+                <span>Members</span>
+              </div>
+              <div class="pool-viz__segment pool-viz__segment--public" style="width: 67%">
+                <span>Public</span>
+              </div>
+            </div>
+            <div class="pool-viz__labels">
+              <span>4 reserved</span>
+              <span>8 open</span>
+            </div>
+            <div class="pool-viz__note">2 member slots release to public in 6h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing__card animate-fade-up">
+        <div class="pricing__header">
+          <h2>Free while in early access</h2>
+          <p>CapFlow is currently free for all Shopify stores. We'll introduce paid plans with plenty of notice to existing users.</p>
+        </div>
+        <div class="pricing__features">
+          <div class="pricing__feature">Unlimited resources</div>
+          <div class="pricing__feature">Unlimited bookings</div>
+          <div class="pricing__feature">Storefront widget</div>
+          <div class="pricing__feature">Capacity management</div>
+          <div class="pricing__feature">Membership support</div>
+          <div class="pricing__feature">Email notifications</div>
+          <div class="pricing__feature">Analytics & exports</div>
+          <div class="pricing__feature">Check-in system</div>
+        </div>
+        <a href="https://apps.shopify.com" class="btn btn--accent" target="_blank" rel="noopener">
+          Install on Shopify — it's free
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta__inner animate-fade-up">
+        <h2>Ready to stop overbooking?</h2>
+        <p>Install CapFlow and start managing your venue's capacity in under an hour.</p>
+        <div class="cta__actions">
+          <a href="https://apps.shopify.com" class="btn btn--primary" target="_blank" rel="noopener">Get started free</a>
+          <a href="/help" class="btn btn--secondary">Browse help docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 100px 0 80px;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 81, 42, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 80% 20%, rgba(201, 81, 42, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero__title {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 1.08;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Proof */
+  .proof {
+    padding: 48px 0;
+  }
+
+  .proof__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 28px 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .proof__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .proof__item strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .proof__item span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .proof__divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+
+  /* Section headers */
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-header p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Features */
+  .features {
+    padding: 80px 0;
+  }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px rgba(201, 81, 42, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .feature-card__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .feature-card p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* How It Works */
+  .how-it-works {
+    padding: 80px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .steps {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .step__number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 10px;
+    margin-top: 2px;
+  }
+
+  .step__content h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .step__content p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Built For */
+  .built-for {
+    padding: 80px 0;
+  }
+
+  .venues-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .venue-tag {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--ink-light);
+    transition: all 0.25s ease;
+  }
+
+  .venue-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* Membership */
+  .membership {
+    padding: 80px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .membership__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .membership__text h2 {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    margin-bottom: 16px;
+  }
+
+  .membership__text > p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .membership__features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .membership__feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink-light);
+  }
+
+  .pool-viz {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .pool-viz__header {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .pool-viz__bar {
+    display: flex;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .pool-viz__segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .pool-viz__segment--member {
+    background: var(--accent);
+  }
+
+  .pool-viz__segment--public {
+    background: var(--ink);
+  }
+
+  .pool-viz__labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .pool-viz__note {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    padding: 10px 14px;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 80px 0;
+  }
+
+  .pricing__card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 48px 40px;
+  }
+
+  .pricing__header h2 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    margin-bottom: 12px;
+  }
+
+  .pricing__header p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .pricing__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .pricing__feature {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-light);
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .pricing__feature::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 80px 0;
+  }
+
+  .cta__inner {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .cta__inner h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 16px;
+  }
+
+  .cta__inner p {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .membership__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 64px 0 48px;
+    }
+    .features__grid {
+      grid-template-columns: 1fr;
+    }
+    .proof__inner {
+      flex-direction: column;
+      gap: 20px;
+      padding: 24px;
+    }
+    .proof__divider {
+      width: 40px;
+      height: 1px;
+    }
+    .pricing__features {
+      grid-template-columns: 1fr;
+    }
+    .pricing__card {
+      padding: 32px 24px;
+    }
+  }
+</style>
