@@ -34,11 +34,7 @@ const currentPath = Astro.url.pathname;
   <nav class="nav">
     <div class="nav__inner container">
       <a href="/" class="nav__logo">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="28" height="28" rx="7" fill="#C9512A"/>
-          <path d="M8 10.5C8 8.567 9.567 7 11.5 7H14C17.314 7 20 9.686 20 13V13C20 16.314 17.314 19 14 19H11.5C9.567 19 8 17.433 8 15.5V10.5Z" fill="white" fill-opacity="0.9"/>
-          <rect x="8" y="19" width="12" height="2.5" rx="1.25" fill="white" fill-opacity="0.6"/>
-        </svg>
+        <img src="/media/logo_C_warm_no-bg.png" alt="CapFlow logo" width="28" height="28" />
         <span>CapFlow</span>
       </a>
 
@@ -76,11 +72,7 @@ const currentPath = Astro.url.pathname;
       <div class="footer__top">
         <div class="footer__brand">
           <a href="/" class="nav__logo">
-            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="28" height="28" rx="7" fill="#C9512A"/>
-              <path d="M8 10.5C8 8.567 9.567 7 11.5 7H14C17.314 7 20 9.686 20 13V13C20 16.314 17.314 19 14 19H11.5C9.567 19 8 17.433 8 15.5V10.5Z" fill="white" fill-opacity="0.9"/>
-              <rect x="8" y="19" width="12" height="2.5" rx="1.25" fill="white" fill-opacity="0.6"/>
-            </svg>
+            <img src="/media/logo_C_warm_no-bg.png" alt="CapFlow logo" width="24" height="24" />
             <span>CapFlow</span>
           </a>
           <p>Capacity-based booking for activity venues.<br/>Built for Shopify.</p>
@@ -237,10 +229,6 @@ const currentPath = Astro.url.pathname;
   .footer__brand .nav__logo {
     color: white;
     margin-bottom: 12px;
-  }
-
-  .footer__brand .nav__logo svg rect:first-child {
-    fill: #C9512A;
   }
 
   .footer__brand p {
