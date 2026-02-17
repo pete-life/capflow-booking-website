@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="CapFlow — Capacity-Based Booking for Shopify">
+<Base title="CapFlow Booking — Capacity-Based Booking for Shopify">
 
   <!-- Hero -->
   <section class="hero">
@@ -54,7 +54,7 @@ import Base from '../layouts/Base.astro';
     <div class="container">
       <div class="section-header animate-fade-up">
         <h2>Everything you need to<br/>manage bookings</h2>
-        <p>From scheduling to check-in, CapFlow handles the full lifecycle of capacity-based reservations.</p>
+        <p>From scheduling to check-in, CapFlow Booking handles the full lifecycle of capacity-based reservations.</p>
       </div>
 
       <div class="features__grid">
@@ -65,7 +65,7 @@ import Base from '../layouts/Base.astro';
             </svg>
           </div>
           <h3>Schedules & Scheduling</h3>
-          <p>Define weekly schedule rules and let CapFlow auto-generate all your timeslots. Change a rule, and hundreds of slots update instantly.</p>
+          <p>Define weekly schedule rules and let CapFlow Booking auto-generate all your timeslots. Change a rule, and hundreds of slots update instantly.</p>
         </div>
 
         <div class="feature-card animate-fade-up delay-2">
@@ -141,7 +141,7 @@ import Base from '../layouts/Base.astro';
           <div class="step__number">2</div>
           <div class="step__content">
             <h3>Set your schedule</h3>
-            <p>Create a Schedule with weekly rules. CapFlow generates all the timeslots automatically.</p>
+            <p>Create a Schedule with weekly rules. CapFlow Booking generates all the timeslots automatically.</p>
           </div>
         </div>
         <div class="step animate-fade-up delay-3">
@@ -240,24 +240,78 @@ import Base from '../layouts/Base.astro';
   <!-- Pricing -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <div class="pricing__card animate-fade-up">
-        <div class="pricing__header">
-          <h2>Free while in early access</h2>
-          <p>CapFlow is currently free for all Shopify stores. We'll introduce paid plans with plenty of notice to existing users.</p>
+      <div class="section-header animate-fade-up">
+        <h2>Simple, transparent pricing</h2>
+        <p>Start free, then scale as your booking operations grow.</p>
+      </div>
+
+      <div class="pricing__grid">
+        <!-- Starter -->
+        <div class="pricing__card animate-fade-up delay-1">
+          <div class="pricing__plan-header">
+            <h3 class="pricing__plan-name">Starter</h3>
+            <div class="pricing__price">
+              <span class="pricing__amount">Free</span>
+            </div>
+            <p class="pricing__plan-desc">Get started with basic booking</p>
+          </div>
+          <ul class="pricing__feature-list">
+            <li>1 resource</li>
+            <li>1 service</li>
+            <li>50 bookings/month</li>
+            <li>Confirmation emails</li>
+            <li>CapFlow branding on widget</li>
+          </ul>
+          <a href="https://apps.shopify.com" class="btn btn--secondary pricing__cta" target="_blank" rel="noopener">
+            Get started free
+          </a>
         </div>
-        <div class="pricing__features">
-          <div class="pricing__feature">Unlimited resources</div>
-          <div class="pricing__feature">Unlimited bookings</div>
-          <div class="pricing__feature">Storefront widget</div>
-          <div class="pricing__feature">Capacity management</div>
-          <div class="pricing__feature">Membership support</div>
-          <div class="pricing__feature">Email notifications</div>
-          <div class="pricing__feature">Analytics & exports</div>
-          <div class="pricing__feature">Check-in system</div>
+
+        <!-- Growth -->
+        <div class="pricing__card pricing__card--featured animate-fade-up delay-2">
+          <div class="pricing__badge">Most popular</div>
+          <div class="pricing__plan-header">
+            <h3 class="pricing__plan-name">Growth</h3>
+            <div class="pricing__price">
+              <span class="pricing__amount">$19</span>
+              <span class="pricing__period">/mo</span>
+            </div>
+            <p class="pricing__plan-desc">Scale your booking operations</p>
+          </div>
+          <ul class="pricing__feature-list">
+            <li>Unlimited resources</li>
+            <li>Unlimited services</li>
+            <li>Unlimited bookings</li>
+            <li>Full email suite</li>
+            <li>Analytics dashboard</li>
+            <li>Check-in system</li>
+            <li>Remove CapFlow branding</li>
+          </ul>
+          <a href="https://apps.shopify.com" class="btn btn--accent pricing__cta" target="_blank" rel="noopener">
+            Start 7-day free trial
+          </a>
         </div>
-        <a href="https://apps.shopify.com" class="btn btn--accent" target="_blank" rel="noopener">
-          Install on Shopify — it's free
-        </a>
+
+        <!-- Pro -->
+        <div class="pricing__card animate-fade-up delay-3">
+          <div class="pricing__plan-header">
+            <h3 class="pricing__plan-name">Pro</h3>
+            <div class="pricing__price">
+              <span class="pricing__amount">$39</span>
+              <span class="pricing__period">/mo</span>
+            </div>
+            <p class="pricing__plan-desc">Advanced features for power users</p>
+          </div>
+          <ul class="pricing__feature-list">
+            <li>Everything in Growth</li>
+            <li>Membership pools</li>
+            <li>Events management</li>
+            <li>CSV export</li>
+          </ul>
+          <a href="https://apps.shopify.com" class="btn btn--secondary pricing__cta" target="_blank" rel="noopener">
+            Start 7-day free trial
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -267,9 +321,9 @@ import Base from '../layouts/Base.astro';
     <div class="container">
       <div class="cta__inner animate-fade-up">
         <h2>Ready to stop overbooking?</h2>
-        <p>Install CapFlow and start managing your venue's capacity in under an hour.</p>
+        <p>Install CapFlow Booking and start managing your venue's capacity in under an hour.</p>
         <div class="cta__actions">
-          <a href="https://apps.shopify.com" class="btn btn--primary" target="_blank" rel="noopener">Get started free</a>
+          <a href="https://apps.shopify.com" class="btn btn--primary" target="_blank" rel="noopener">Start for free</a>
           <a href="/help" class="btn btn--secondary">Browse help docs</a>
         </div>
       </div>
@@ -647,55 +701,126 @@ import Base from '../layouts/Base.astro';
     padding: 80px 0;
   }
 
-  .pricing__card {
-    max-width: 600px;
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
     margin: 0 auto;
-    text-align: center;
+    align-items: start;
+  }
+
+  .pricing__card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 18px;
-    padding: 48px 40px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
-  .pricing__header h2 {
-    font-size: clamp(1.8rem, 3vw, 2.2rem);
+  .pricing__card--featured {
+    border-color: var(--accent);
+    box-shadow: 0 8px 40px rgba(201, 81, 42, 0.12);
+  }
+
+  .pricing__badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--accent);
+    padding: 5px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .pricing__plan-header {
+    text-align: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 28px;
+  }
+
+  .pricing__plan-name {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
     margin-bottom: 12px;
   }
 
-  .pricing__header p {
+  .pricing__price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+
+  .pricing__amount {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .pricing__period {
     font-size: 16px;
     color: var(--muted);
-    margin-bottom: 32px;
-    line-height: 1.6;
+    font-weight: 500;
   }
 
-  .pricing__features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 24px;
-    margin-bottom: 32px;
-    text-align: left;
+  .pricing__plan-desc {
+    font-size: 14.5px;
+    color: var(--muted);
   }
 
-  .pricing__feature {
+  .pricing__feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pricing__feature-list li {
     font-size: 14.5px;
     font-weight: 500;
     color: var(--ink-light);
-    padding: 6px 0;
     padding-left: 24px;
     position: relative;
   }
 
-  .pricing__feature::before {
+  .pricing__feature-list li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 12px;
+    top: 7px;
     width: 8px;
     height: 8px;
     background: var(--accent);
     border-radius: 50%;
-    opacity: 0.6;
+    opacity: 0.5;
+  }
+
+  .pricing__card--featured .pricing__feature-list li::before {
+    opacity: 0.8;
+  }
+
+  .pricing__cta {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
   }
 
   /* CTA */
@@ -736,6 +861,13 @@ import Base from '../layouts/Base.astro';
       grid-template-columns: 1fr;
       gap: 40px;
     }
+    .pricing__grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+    }
+    .pricing__card--featured {
+      order: -1;
+    }
   }
 
   @media (max-width: 600px) {
@@ -754,11 +886,8 @@ import Base from '../layouts/Base.astro';
       width: 40px;
       height: 1px;
     }
-    .pricing__features {
-      grid-template-columns: 1fr;
-    }
     .pricing__card {
-      padding: 32px 24px;
+      padding: 28px 24px;
     }
   }
 </style>

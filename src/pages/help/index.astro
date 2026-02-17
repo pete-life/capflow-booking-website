@@ -6,7 +6,7 @@ const articles = await getCollection('help');
 const sorted = articles.sort((a, b) => a.data.order - b.data.order);
 
 const categories = [
-  { name: 'Getting Started', icon: '&#9889;', desc: 'New to CapFlow? Start here.' },
+  { name: 'Getting Started', icon: '&#9889;', desc: 'New to CapFlow Booking? Start here.' },
   { name: 'Setup & Configuration', icon: '&#9881;', desc: 'Resources, services, scheduling, and capacity.' },
   { name: 'Daily Operations', icon: '&#9745;', desc: 'Calendar, bookings, check-in, and events.' },
   { name: 'Insights', icon: '&#9888;', desc: 'Analytics, customer management, and members.' },
@@ -14,7 +14,7 @@ const categories = [
 ];
 ---
 
-<Base title="Help Center — CapFlow" description="Guides and documentation for the CapFlow Booking App. Learn how to set up and manage your capacity-based booking system.">
+<Base title="Help Center — CapFlow Booking" description="Guides and documentation for CapFlow Booking. Learn how to set up and manage your capacity-based booking system.">
 
   <section class="help-hero">
     <div class="container">
