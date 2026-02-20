@@ -249,7 +249,7 @@ import Base from '../layouts/Base.astro';
         <!-- Starter -->
         <div class="pricing__card animate-fade-up delay-1">
           <div class="pricing__plan-header">
-            <h3 class="pricing__plan-name">Starter</h3>
+            <h3 class="pricing__plan-name">Free</h3>
             <div class="pricing__price">
               <span class="pricing__amount">Free</span>
             </div>
@@ -259,7 +259,7 @@ import Base from '../layouts/Base.astro';
             <li>1 resource</li>
             <li>1 service</li>
             <li>50 bookings/month</li>
-            <li>Confirmation emails</li>
+            <li>Email notifications</li>
             <li>CapFlow branding on widget</li>
           </ul>
           <a href="https://apps.shopify.com" class="btn btn--secondary pricing__cta" target="_blank" rel="noopener">
@@ -276,13 +276,13 @@ import Base from '../layouts/Base.astro';
               <span class="pricing__amount">$19</span>
               <span class="pricing__period">/mo</span>
             </div>
+            <p class="pricing__yearly">or $190/year (save 17%)</p>
             <p class="pricing__plan-desc">Scale your booking operations</p>
           </div>
           <ul class="pricing__feature-list">
             <li>Unlimited resources</li>
             <li>Unlimited services</li>
             <li>Unlimited bookings</li>
-            <li>Full email suite</li>
             <li>Analytics dashboard</li>
             <li>Check-in system</li>
             <li>Remove CapFlow branding</li>
@@ -300,13 +300,14 @@ import Base from '../layouts/Base.astro';
               <span class="pricing__amount">$39</span>
               <span class="pricing__period">/mo</span>
             </div>
+            <p class="pricing__yearly">or $390/year (save 17%)</p>
             <p class="pricing__plan-desc">Advanced features for power users</p>
           </div>
           <ul class="pricing__feature-list">
             <li>Everything in Growth</li>
-            <li>Membership pools</li>
-            <li>Events management</li>
-            <li>CSV export</li>
+            <li>Membership system</li>
+            <li>Capacity pools</li>
+            <li>Events</li>
           </ul>
           <a href="https://apps.shopify.com" class="btn btn--secondary pricing__cta" target="_blank" rel="noopener">
             Start 7-day free trial
@@ -776,6 +777,13 @@ import Base from '../layouts/Base.astro';
     font-size: 16px;
     color: var(--muted);
     font-weight: 500;
+  }
+
+  .pricing__yearly {
+    font-size: 13.5px;
+    color: var(--accent, #10b981);
+    font-weight: 600;
+    margin: 0 0 8px;
   }
 
   .pricing__plan-desc {
