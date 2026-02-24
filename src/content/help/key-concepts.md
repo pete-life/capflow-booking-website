@@ -64,7 +64,7 @@ Each timeslot has parallel capacity buckets:
 | Pool | Who can book | Example |
 |------|-------------|---------|
 | **Total** | Hard maximum for the timeslot | 12 people |
-| **Members** | Reserved for members (Annual Pass, Clip Card) | 4 people |
+| **Members** | Reserved for members with pool access | 4 people |
 | **Public** | Available for anyone (public/walk-in) | 8 people |
 
 Total is usually the sum of Members + Public, but doesn't have to be.
@@ -86,14 +86,19 @@ The percentage of total capacity that's been booked. Shown throughout the app as
 
 ## Membership Concepts
 
+### Membership Type
+
+A configurable definition of a membership tier. Each type has a display label, a Shopify tag for customer syncing, and settings for pool access and weekday restrictions. You configure your membership types in **Settings > Membership Types**.
+
 ### Entitlement
 
-A customer's membership rights. Types include:
-- **Annual Pass** — Full access for a year (or configured duration)
+A customer's membership rights. Common types include:
+- **Annual Pass (Full)** — Full access for a year (or configured duration)
+- **Annual Pass (Weekday)** — Weekday-only member access (Mon–Fri); weekends at regular pricing
 - **Monthly Pass** — Full access for a month
 - **Clip Card** — Pre-paid credits (clips) for individual sessions
 
-Entitlements are created automatically when a customer purchases the corresponding Shopify product.
+You can create custom membership types beyond these defaults. Entitlements are created automatically when a customer purchases the corresponding Shopify product.
 
 ### Clip
 

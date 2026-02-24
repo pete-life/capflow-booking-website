@@ -29,14 +29,14 @@ Shows all customers with active (or recently expired) memberships.
 | Column | Description |
 |--------|-------------|
 | **Customer** | Name and email (from Shopify) |
-| **Type** | Annual Pass, Monthly Pass, or Clip Card |
+| **Type** | Membership type (from your configured types, e.g., Annual Pass, Clip Card) |
 | **Status** | Active, Expiring (within 30 days), or Expired |
 | **Expires** | Expiration date for time-based passes |
 | **Clip Balance** | Remaining clips (for Clip Card holders) |
 
 ### Filtering
 
-- **By type** — Show only Annual Pass, Clip Card, etc.
+- **By type** — Filter by any of your configured membership types
 - **By status** — Filter Active, Expiring, or Expired
 - **Search** — Find by customer ID
 

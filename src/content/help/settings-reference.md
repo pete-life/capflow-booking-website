@@ -10,6 +10,34 @@ The Settings page is your central configuration hub. All app-wide policies and p
 
 ---
 
+## Timezone
+
+Set the timezone for your shop. All dates and times throughout the app — calendar, bookings, emails, and the booking widget — use this timezone.
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| **Shop Timezone** | Timezone for all date/time display and calculations | Europe/Copenhagen |
+
+Pick your venue's local timezone from the dropdown. This ensures customers see correct availability and receive emails with the right times.
+
+---
+
+## Membership Types
+
+Define the membership types available for your shop. Each type maps to a Shopify customer tag and controls capacity pool access and weekday restrictions. See [Membership Setup](/help/membership-setup) for a detailed walkthrough.
+
+| Field | Description |
+|-------|-------------|
+| **Key** | Internal identifier (e.g., `ANNUAL_PASS_FULL`) |
+| **Display Label** | Shown in dropdowns and the Customers page |
+| **Shopify Tag** | Tag synced to the customer in Shopify |
+| **Grants Pool Access** | Whether this type can book from the member capacity pool |
+| **Weekday Only** | Restrict member pool access to Mon–Fri |
+
+You can add, edit, and remove types as needed. If no types are configured, CapFlow uses sensible defaults.
+
+---
+
 ## Membership Products
 
 Link Shopify products to CapFlow membership types. See [Membership Setup](/help/membership-setup) for a detailed walkthrough.
@@ -18,6 +46,7 @@ Link Shopify products to CapFlow membership types. See [Membership Setup](/help/
 |---------|-------------|---------|
 | **Annual Pass Product** | Shopify product for annual memberships | Not set |
 | **Annual Pass Duration** | How long the pass is valid (days) | 365 |
+| **Annual Pass Variant Mapping** | Maps each variant to a pass type (Full or Weekday) | Not set |
 | **Monthly Pass Product** | Shopify product for monthly memberships | Not set |
 | **Monthly Pass Duration** | How long the pass is valid (days) | 30 |
 | **Clip Card Product** | Shopify product for clip cards | Not set |
@@ -122,6 +151,18 @@ CapFlow sends transactional emails automatically for key booking events.
 | **Sender Name** | The "from" name on emails | CapFlow Bookings |
 | **Reply-To Email** | Where customer replies go | Not set |
 
+### Email Content Customisation
+
+You can customise the content of confirmation and reminder emails:
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| **Email Header** | Main heading shown at the top of the email | Booking Confirmed |
+| **Information Header** | Header for the instructions section | Arrival Instructions |
+| **Information Body** | Body text for the instructions section | Standard arrival instructions |
+
+Use these to tailor emails with your venue's specific arrival instructions, parking information, or other details customers need before their visit.
+
 ### Automatic Emails
 
 These emails are sent automatically — no configuration needed:
@@ -137,6 +178,7 @@ Emails include:
 - Check-in token/QR code
 - Link to manage the booking
 - Cancellation policy information
+- Your custom header and arrival instructions
 
 ---
 

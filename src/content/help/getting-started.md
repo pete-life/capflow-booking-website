@@ -102,8 +102,10 @@ The widget will automatically show availability, handle reservations, and redire
 | 4 | Create a service linked to a Shopify product | Services page |
 | 5 | Add booking widget to theme | Shopify Theme Editor |
 | 6 | Make a test booking | Your storefront |
-| 7 | Configure settings (optional) | Settings page |
-| 8 | Set up memberships (optional) | Settings > Membership Products |
+| 7 | Set your timezone | Settings > Timezone |
+| 8 | Configure settings (optional) | Settings page |
+| 9 | Set up membership types (optional) | Settings > Membership Types |
+| 10 | Link membership products (optional) | Settings > Membership Products |
 
 ---
 

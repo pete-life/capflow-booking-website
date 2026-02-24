@@ -12,25 +12,24 @@ The Bookings page shows all customer reservations and staff blocks.
 
 ## Bookings List
 
-The main view shows all bookings with:
+The main view shows all bookings sorted by **session date** (most recent first), so upcoming and recent bookings appear at the top.
 
 | Column | Description |
 |--------|-------------|
 | **Time** | Session start time |
-| **Resource** | Which resource (e.g., Main Wall) |
-| **Kind** | CUSTOMER (regular) or BLOCK (staff-created) |
+| **Service** | Which service was booked |
+| **Customer** | Customer name and email |
 | **Pool** | Which capacity pool was used (Members/Public) |
 | **Party Size** | Number of people |
 | **Status** | CONFIRMED, CANCELLED, or NO_SHOW |
 | **Check-in** | Check-in timestamp (if checked in) |
-| **Customer** | Name and email |
 
 ### Filtering
 
 - **Search** — By email address, booking ID, or customer ID
 - **Status** — Filter by CONFIRMED, CANCELLED
 - **Kind** — Filter by CUSTOMER or BLOCK bookings
-- **Pagination** — 20 bookings per page
+- **Pagination** — 20 bookings per page with numbered page navigation
 
 ---
 

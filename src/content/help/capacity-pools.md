@@ -29,12 +29,22 @@ Members book from the member pool first. Public customers book from the public p
 
 ## Who Counts as a "Member"?
 
-Members are customers with an active entitlement:
-- **Annual Pass** holders
+Members are customers with an active entitlement whose membership type has **Grants pool access** enabled. By default this includes:
+- **Annual Pass** holders (Full or Weekday)
 - **Monthly Pass** holders
 - **Clip Card** holders (with remaining clips)
 
-Membership is detected automatically via Shopify customer tags. See [Membership Setup](/help/membership-setup) for configuration.
+You can configure your own membership types in **Settings > Membership Types** — each type controls whether it grants member pool access. See [Membership Setup](/help/membership-setup) for configuration.
+
+### Weekday-Only Members
+
+Some membership types (e.g., Weekday Pass) are configured as **weekday only**. These members can book from the member pool Monday–Friday, but on weekends they book from the **public pool** at regular pricing. This means:
+
+- **Mon–Fri:** Weekday pass holders use the member pool as normal
+- **Sat–Sun:** Weekday pass holders see public availability and are redirected to Shopify checkout for payment
+- The booking widget shows an info banner explaining that weekend bookings use standard pricing
+
+This allows you to offer discounted weekday memberships while still letting those members book weekends when they want to — they just pay the regular rate.
 
 ---
 

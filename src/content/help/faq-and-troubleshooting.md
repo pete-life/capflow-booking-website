@@ -96,8 +96,8 @@ Create a **Block Booking** from the Calendar page:
 
 If you need to give someone member access without them purchasing a product:
 1. Go to the customer's profile in **Shopify Admin > Customers**
-2. Add the `member` tag plus the relevant type tag (`annual-pass`, `clip-card`, etc.)
-3. CapFlow will detect the tags and treat them as a member
+2. Add the Shopify tag configured for the relevant membership type (check **Settings > Membership Types** for the exact tag)
+3. CapFlow will detect the tag and treat them as a member
 
 > **Note:** Manual tagging doesn't create a proper entitlement record with expiration dates. For full membership tracking, the customer should purchase the membership product.
 
@@ -141,11 +141,11 @@ Fees are tracked in the customer's fee account. To waive:
 
 ### "Can I customise the email content?"
 
-Currently, emails use built-in templates. The configurable options are:
-- Sender name
-- Reply-to address
-
-Custom email templates are planned for a future update.
+Yes. Go to **Settings > Email Notifications** where you can customise:
+- **Email Header** — The main heading (e.g., "Booking Confirmed")
+- **Information Header** — The instructions section heading (e.g., "Arrival Instructions")
+- **Information Body** — The instructions text (e.g., parking info, what to bring)
+- **Sender Name** and **Reply-To Email**
 
 ---
 
