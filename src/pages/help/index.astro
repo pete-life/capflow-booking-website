@@ -5,6 +5,15 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('help');
 const sorted = articles.sort((a, b) => a.data.order - b.data.order);
 
+// Build search index with raw markdown body for each article
+const searchIndex = sorted.map(article => ({
+  slug: article.id,
+  title: article.data.title,
+  description: article.data.description,
+  category: article.data.category,
+  body: article.body ?? '',
+}));
+
 const categories = [
   { name: 'Getting Started', icon: '&#9889;', desc: 'New to CapFlow Booking? Start here.' },
   { name: 'Setup & Configuration', icon: '&#9881;', desc: 'Resources, services, scheduling, and capacity.' },
@@ -20,6 +29,28 @@ const categories = [
     <div class="container">
       <h1 class="animate-fade-up">Help Center</h1>
       <p class="animate-fade-up delay-1">Everything you need to set up and run your booking system.</p>
+      <div class="help-search animate-fade-up delay-2">
+        <div class="help-search__field">
+          <svg class="help-search__icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input
+            type="text"
+            id="help-search-input"
+            placeholder="Search articles..."
+            autocomplete="off"
+          />
+          <kbd class="help-search__shortcut" id="help-search-shortcut">/</kbd>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="help-search-results" id="help-search-results" style="display:none;">
+    <div class="container">
+      <p class="help-search-results__summary" id="help-search-summary"></p>
+      <div class="help-search-results__list" id="help-search-list"></div>
     </div>
   </section>
 
@@ -63,6 +94,135 @@ const categories = [
     </div>
   </section>
 
+  <script define:vars={{ searchIndex }}>
+    window.__helpSearchIndex = searchIndex;
+  </script>
+
+  <script>
+    const input = document.getElementById('help-search-input');
+    const resultsSection = document.getElementById('help-search-results');
+    const resultsList = document.getElementById('help-search-list');
+    const resultsSummary = document.getElementById('help-search-summary');
+    const categoriesSection = document.querySelector('.help-content');
+    const ctaSection = document.querySelector('.help-cta');
+    const shortcutHint = document.getElementById('help-search-shortcut');
+
+    const index = (window as any).__helpSearchIndex as Array<{
+      slug: string; title: string; description: string; category: string; body: string;
+    }>;
+
+    // Strip markdown syntax for plain-text matching
+    function stripMd(text: string): string {
+      return text
+        .replace(/^---[\s\S]*?---/m, '')    // frontmatter
+        .replace(/```[\s\S]*?```/g, '')      // code blocks
+        .replace(/\|[^\n]*\|/g, '')          // tables
+        .replace(/[#*_`\[\]()>|~-]/g, ' ')  // markdown chars
+        .replace(/https?:\/\/\S+/g, '')      // urls
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    // Get a snippet around the first match
+    function getSnippet(text: string, query: string): string {
+      const lower = text.toLowerCase();
+      const pos = lower.indexOf(query.toLowerCase());
+      if (pos === -1) return text.slice(0, 120) + '...';
+      const start = Math.max(0, pos - 50);
+      const end = Math.min(text.length, pos + query.length + 70);
+      let snippet = '';
+      if (start > 0) snippet += '...';
+      snippet += text.slice(start, end);
+      if (end < text.length) snippet += '...';
+      return snippet;
+    }
+
+    // Highlight query terms in text
+    function highlight(text: string, query: string): string {
+      if (!query) return text;
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+    }
+
+    function doSearch(query: string) {
+      const q = query.trim().toLowerCase();
+
+      if (!q) {
+        resultsSection!.style.display = 'none';
+        categoriesSection!.removeAttribute('style');
+        ctaSection!.removeAttribute('style');
+        return;
+      }
+
+      const results = index
+        .map(article => {
+          const plain = stripMd(article.body);
+          const titleMatch = article.title.toLowerCase().includes(q);
+          const descMatch = article.description.toLowerCase().includes(q);
+          const bodyMatch = plain.toLowerCase().includes(q);
+          if (!titleMatch && !descMatch && !bodyMatch) return null;
+          // Score: title > description > body
+          const score = (titleMatch ? 100 : 0) + (descMatch ? 50 : 0) + (bodyMatch ? 10 : 0);
+          const snippet = bodyMatch ? getSnippet(plain, q) : article.description;
+          return { ...article, score, snippet };
+        })
+        .filter(Boolean)
+        .sort((a, b) => b!.score - a!.score);
+
+      categoriesSection!.style.display = 'none';
+      ctaSection!.style.display = results.length ? 'none' : '';
+      resultsSection!.style.display = '';
+
+      resultsSummary!.textContent = results.length
+        ? `${results.length} result${results.length === 1 ? '' : 's'} for "${query.trim()}"`
+        : `No results for "${query.trim()}"`;
+
+      resultsList!.innerHTML = results.length
+        ? results.map(r => `
+          <a href="/help/${r!.slug}" class="help-result-card">
+            <div class="help-result-card__content">
+              <span class="help-result-card__category">${r!.category}</span>
+              <h3>${highlight(r!.title, query.trim())}</h3>
+              <p>${highlight(r!.snippet, query.trim())}</p>
+            </div>
+            <svg class="help-result-card__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        `).join('')
+        : '<p class="help-search-results__empty">Try different keywords or browse the categories below.</p>';
+
+      if (!results.length) {
+        categoriesSection!.removeAttribute('style');
+      }
+    }
+
+    let debounceTimer: ReturnType<typeof setTimeout>;
+    input!.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => doSearch((input as HTMLInputElement).value), 150);
+    });
+
+    // Hide shortcut hint on focus, show on blur if empty
+    input!.addEventListener('focus', () => { shortcutHint!.style.display = 'none'; });
+    input!.addEventListener('blur', () => {
+      if (!(input as HTMLInputElement).value) shortcutHint!.style.display = '';
+    });
+
+    // "/" keyboard shortcut to focus search
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== input) {
+        e.preventDefault();
+        (input as HTMLInputElement).focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === input) {
+        (input as HTMLInputElement).value = '';
+        (input as HTMLInputElement).blur();
+        doSearch('');
+      }
+    });
+  </script>
+
 </Base>
 
 <style>
@@ -81,6 +241,138 @@ const categories = [
     color: var(--muted);
   }
 
+  /* Search field */
+  .help-search {
+    max-width: 480px;
+    margin: 28px auto 0;
+  }
+
+  .help-search__field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .help-search__icon {
+    position: absolute;
+    left: 16px;
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  .help-search__field input {
+    width: 100%;
+    padding: 14px 48px 14px 48px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .help-search__field input::placeholder {
+    color: var(--muted);
+  }
+
+  .help-search__field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  }
+
+  .help-search__shortcut {
+    position: absolute;
+    right: 14px;
+    padding: 2px 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    pointer-events: none;
+  }
+
+  /* Search results */
+  .help-search-results {
+    padding: 0 0 48px;
+  }
+
+  .help-search-results__summary {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .help-search-results__empty {
+    font-size: 15px;
+    color: var(--muted);
+    padding: 24px 0;
+  }
+
+  .help-result-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .help-result-card:hover {
+    background: var(--surface);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .help-result-card__category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .help-result-card__content h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .help-result-card__content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .help-result-card__arrow {
+    flex-shrink: 0;
+    color: var(--border);
+    transition: all 0.2s ease;
+  }
+
+  .help-result-card:hover .help-result-card__arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  :global(.help-result-card mark),
+  :global(.help-result-card__content mark) {
+    background: rgba(16, 185, 129, 0.15);
+    color: inherit;
+    padding: 1px 2px;
+    border-radius: 3px;
+  }
+
   .help-content {
     padding: 0 0 64px;
   }
@@ -96,12 +388,12 @@ const categories = [
   }
 
   .help-category__header h2 {
-    font-size: 1.5rem;
-    margin-bottom: 4px;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
   }
 
   .help-category__header p {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--muted);
   }
 
@@ -177,6 +469,15 @@ const categories = [
   @media (max-width: 600px) {
     .help-hero {
       padding: 48px 0 32px;
+    }
+    .help-search {
+      margin-top: 20px;
+    }
+    .help-search__shortcut {
+      display: none;
+    }
+    .help-search__field input {
+      padding-right: 16px;
     }
     .help-cta__inner {
       padding: 32px 24px;
